@@ -27,6 +27,22 @@ saoPauloTimeElement.innerHTML = saoPauloTime.format("h:mm:ss [<small>]A[</h:mm:s
 updateSanPauloTime();
 setInterval(updateSanPauloTime, 1000);
 
+
+function updateHonoluluTime () {
+let honoluluElement = document.querySelector("#honolulu");
+if (honoluluElement){
+let honoluluDateElement = honoluluElement.querySelector(".date");
+let honoluluTimeElement = honoluluElement.querySelector(".time");
+let honoluluTime = moment().tz("Pacific/Honolulu");
+
+honoluluDateElement.innerHTML = honoluluTime.format("MMMM Do YYYY");
+honoluluTimeElement.innerHTML = honoluluTime.format("h:mm:ss [<small>]A[</h:mm:sssmall>]");
+}
+}
+updateHonoluluTime();
+setInterval(updateHonoluluTime, 1000);
+
+
 function updateCity(event) {
     let cityTimeZone = event.target.value;
     if (cityTimeZone === "current") {
